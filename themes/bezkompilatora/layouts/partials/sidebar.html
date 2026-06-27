@@ -1,0 +1,51 @@
+<aside id="secondary" class="widget-area sidebar" role="complementary">
+
+  <div id="custom_html-4" class="widget_text widget widget_custom_html">
+    <h2 class="widget-title"><span>O mnie</span></h2>
+    <div class="textwidget custom-html-widget">
+      <a href="{{ "/o-mnie/" | relURL }}"><img class="aligncenter" src="{{ "/images/uploads/2022/12/v2.jpg" | relURL }}" alt="{{ .Site.Params.author }}" width="190" height="190"></a>
+      <br>
+      <center>
+        {{ .Site.Params.authorBio }}
+      </center>
+    </div>
+  </div>
+
+  <div id="bk_blogging_facebook_widget-3" class="widget bk_blogging_facebook_widget">
+    <h3 class="widget-title"><span>Znajdź mnie na Facebooku!</span></h3>
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v3.0&appId=744968869035123&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div class="fb-page" data-href="https://www.facebook.com/BezKompilatora/" data-width="278" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+      <blockquote cite="https://www.facebook.com/BezKompilatora/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/BezKompilatora/">Bez Kompilatora</a></blockquote>
+    </div>
+  </div>
+
+  <div id="bk_blogging_social_widget-3" class="widget bk_blogging_social_widget">
+    <h3 class="widget-title"><span>Social media</span></h3>
+    {{ $icon := "/img/social-media" | relURL }}
+    {{ with .Site.Params.facebook }}
+    <div style="width:40px;height:40px;margin-left:2px;margin-bottom:5px;display:inline">
+      <a href="{{ . }}" target="_blank" style="text-decoration:none"><img alt="Facebook" title="Facebook" src="{{ $icon }}/default_fb.png" width="40" height="40"></a>
+    </div>
+    {{ end }}
+    {{ with .Site.Params.linkedin }}
+    <div style="width:40px;height:40px;margin-left:2px;margin-bottom:5px;display:inline">
+      <a href="{{ . }}" target="_blank" style="text-decoration:none"><img alt="Linkedin" title="Linkedin" src="{{ $icon }}/default_linkedin.png" width="40" height="40"></a>
+    </div>
+    {{ end }}
+    {{ with .Site.Params.github }}
+    <div style="width:40px;height:40px;margin-left:2px;margin-bottom:5px;display:inline">
+      <a href="{{ . }}" target="_blank" style="text-decoration:none"><img alt="GitHub" title="GitHub" src="{{ $icon }}/default_github.svg" width="40" height="40"></a>
+    </div>
+    {{ end }}
+  </div>
+
+</aside>

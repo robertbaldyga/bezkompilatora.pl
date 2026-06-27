@@ -1,0 +1,29 @@
+{{ define "main" }}
+<article id="post-{{ .RelPermalink | anchorize }}" class="post type-post status-publish hentry{{ range .Params.categories }} category-{{ . | urlize }}{{ end }}">
+  <header class="entry-header">
+    <h1 class="entry-title">{{ .Title }}</h1>
+    <div class="entry-meta clear">
+      <span class="entry-author"><a href="{{ "/o-mnie/" | relURL }}"><img alt="" src="{{ .Site.Params.authorImage | relURL }}" class="avatar avatar-48 photo" height="48" width="48"></a> Dodane przez <a href="{{ "/o-mnie/" | relURL }}" rel="author">{{ .Params.author | default .Site.Params.author }}</a></span>
+      &#8212; <span class="entry-date">{{ partial "pl-date.html" . }}</span>
+      {{ with .Params.categories }}
+      <span class="entry-category"> w kategorii {{ range first 1 . }}<a href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }} </span>
+      {{ end }}
+    </div><!-- .entry-meta -->
+  </header>
+
+  <div class="entry-content">
+    {{ with .Params.image }}
+    <div class="entry-thumbnail">
+      <img src="{{ . | relURL }}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="{{ $.Title }}">
+    </div>
+    {{ end }}
+    {{ .Content }}
+  </div>
+
+  {{ with .Params.tags }}
+  <span class="entry-tags">
+    <span class="tag-links">{{ range . }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" rel="tag">{{ . }}</a>{{ end }}</span>
+  </span>
+  {{ end }}
+</article>
+{{ end }}

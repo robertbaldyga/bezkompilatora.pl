@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} &#8211; {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <link rel="profile" href="https://gmpg.org/xfn/11">
+  <link rel="stylesheet" id="bk-blogging-fonts-css" href="https://fonts.googleapis.com/css?family=Open+Sans%3Aregular%2C700%2C600%7COpen+Sans+Condensed%3A300%2C300italic%2C700&amp;subset=latin%2Clatin-ext" type="text/css" media="all">
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ .Site.Params.rss | relURL }}">
+</head>
+<body class="{{ if .IsHome }}home blog{{ else }}{{ .Kind }}{{ end }} wp-theme-bk-blogging hfeed">
+  <div id="page" class="site">
+    {{ partial "header.html" . }}
+
+    <div id="content" class="site-content container clear">
+
+      <div id="primary" class="content-area layout-1c clear">
+        <main id="main" class="site-main clear">
+          {{- block "main" . }}{{- end }}
+        </main>
+      </div>
+
+      {{ partial "sidebar.html" . }}
+
+    </div><!-- #content -->
+
+    {{ partial "footer.html" . }}
+
+  </div><!-- #page -->
+
+  <div id="back-top">
+    <a href="#page"><span class="genericon genericon-collapse"></span></a>
+  </div>
+
+  <script src="{{ "js/main.js" | relURL }}"></script>
+</body>
+</html>

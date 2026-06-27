@@ -1,0 +1,24 @@
+{{- $ := .page -}}
+<div id="post-{{ $.RelPermalink | anchorize }}" class="clear{{ if .last }} last{{ end }} post type-post status-publish format-standard {{ if $.Params.image }}has-post-thumbnail {{ end }}hentry{{ range $.Params.categories }} category-{{ . | urlize }}{{ end }}">
+  <div class="entry-overview">
+    <h2 class="entry-title"><a href="{{ $.RelPermalink }}" rel="bookmark">{{ $.Title }}</a></h2>
+    <div class="entry-meta clear">
+      <span class="entry-author"><a href="{{ "/o-mnie/" | relURL }}"><img alt="" src="{{ $.Site.Params.authorImage | relURL }}" class="avatar avatar-48 photo" height="48" width="48"></a> Dodane przez <a href="{{ "/o-mnie/" | relURL }}" rel="author">{{ $.Params.author | default $.Site.Params.author }}</a></span>
+      &#8212; <span class="entry-date">{{ partial "pl-date.html" $ }}</span>
+      {{ with $.Params.categories }}
+      <span class="entry-category"> w kategorii {{ range first 1 . }}<a href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }} </span>
+      {{ end }}
+    </div><!-- .entry-meta -->
+    {{ with $.Params.image }}
+    <a class="thumbnail-link" href="{{ $.RelPermalink }}">
+      <div class="thumbnail-wrap">
+        <img src="{{ . | relURL }}" class="attachment-bk_blogging_thumb size-bk_blogging_thumb wp-post-image" alt="{{ $.Title }}">
+      </div>
+    </a>
+    {{ end }}
+    <div class="entry-summary">
+      <p>{{ $.Summary | plainify | chomp }}</p>
+      <span class="read-more"><a href="{{ $.RelPermalink }}">Czytaj dalej &raquo;</a></span>
+    </div>
+  </div>
+</div><!-- #post -->

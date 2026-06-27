@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="section-header">
+  <h1 class="entry-title">{{ .Title }}</h1>
+</div>
+<div id="recent-content" class="content-loop">
+  {{ $pages := .Paginator.Pages }}
+  {{ $len := len $pages }}
+  {{ range $i, $p := $pages }}
+    {{ partial "post-card.html" (dict "page" $p "last" (eq (add $i 1) $len)) }}
+  {{ end }}
+</div>
+{{ partial "pagination.html" . }}
+{{ end }}

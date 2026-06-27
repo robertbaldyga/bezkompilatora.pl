@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ $posts := where .Site.RegularPages "Section" "blog" }}
+{{ $paginator := .Paginate $posts }}
+<div id="recent-content" class="content-loop">
+  {{ $len := len $paginator.Pages }}
+  {{ range $i, $p := $paginator.Pages }}
+    {{ partial "post-card.html" (dict "page" $p "last" (eq (add $i 1) $len)) }}
+  {{ end }}
+</div>
+{{ partial "pagination.html" . }}
+{{ end }}

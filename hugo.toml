@@ -1,0 +1,42 @@
+baseURL = "https://bezkompilatora.pl/"
+locale = "pl-PL"
+title = "Bez Kompilatora"
+theme = "bezkompilatora"
+summaryLength = 40
+paginate = 8
+
+[params]
+  description = "Blog o programowaniu, Linuxie i technologii"
+  author = "Robert Bałdyga"
+  authorBio = "Cześć - jestem Robert. Na moim blogu opowiadam o technologii i dzielę się wiedzą."
+  authorImage = "/images/avatar.jpg"
+  facebook = "https://www.facebook.com/BezKompilatora/"
+  linkedin = "https://www.linkedin.com/in/robertbaldyga/"
+  github = "https://github.com/robertbaldyga"
+  rss = "/index.xml"
+
+[markup]
+  [markup.highlight]
+    style = "github"
+    noClasses = true
+    tabWidth = 4
+    lineNos = true
+    lineNumbersInTable = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[menu]
+  [[menu.main]]
+    name = "Strona główna"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "O mnie"
+    url = "/o-mnie/"
+    weight = 2
+  [[menu.main]]
+    name = "Kontakt"
+    url = "/kontakt/"
+    weight = 3

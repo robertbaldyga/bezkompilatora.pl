@@ -1,0 +1,2 @@
+{{- $months := slice "stycznia" "lutego" "marca" "kwietnia" "maja" "czerwca" "lipca" "sierpnia" "września" "października" "listopada" "grudnia" -}}
+{{- .Date.Day }} {{ index $months (sub (int .Date.Month) 1) }}, {{ .Date.Year -}}

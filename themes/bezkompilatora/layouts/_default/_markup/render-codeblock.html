@@ -1,0 +1,7 @@
+{{- /* Language-tagged fences keep the default Chroma highlighting.
+       Plain (no-language) fences are rendered as terminal-style blocks. */ -}}
+{{- if .Type -}}
+{{- (transform.HighlightCodeBlock .).Wrapped -}}
+{{- else -}}
+<pre class="terminal"><code>{{- trim .Inner "\n" | htmlEscape | safeHTML -}}</code></pre>
+{{- end -}}

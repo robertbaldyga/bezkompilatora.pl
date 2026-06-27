@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article id="post-{{ .RelPermalink | anchorize }}" class="page type-page status-publish hentry">
+  <header class="entry-header">
+    <h1 class="entry-title">{{ .Title }}</h1>
+  </header>
+  <div class="entry-content page-content">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

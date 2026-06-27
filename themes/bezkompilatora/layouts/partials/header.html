@@ -1,0 +1,21 @@
+<header id="masthead" class="site-header clear" role="banner">
+  <div class="container">
+    <nav id="primary-nav" class="main-navigation" role="navigation">
+      <div class="menu-menu-1-container">
+        <ul id="primary-menu" class="sf-menu">
+          {{ range .Site.Menus.main }}
+          <li class="menu-item menu-item-type-custom menu-item-object-custom{{ if $.IsHome }}{{ if eq .URL "/" }} current-menu-item current_page_item menu-item-home{{ end }}{{ else }}{{ if $.Page.HasMenuCurrent "main" . }} current-menu-item current_page_item{{ end }}{{ end }}">
+            <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </nav>
+
+    <div class="banner">
+      <a href="{{ "/" | relURL }}" title="{{ .Site.Title }}" rel="home">
+        <img src="{{ "/images/header.gif" | relURL }}" height="200" width="900" alt="{{ .Site.Title }}">
+      </a>
+    </div>
+  </div><!-- .container -->
+</header>
